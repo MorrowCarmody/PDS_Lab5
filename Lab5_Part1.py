@@ -4,7 +4,28 @@
 
 def is_palindrome(string):
     """Determine if a string is a palindrome."""
-    return
+    string = string.lower()
+    stack = []
+
+    for letter in string:
+        stack.append(letter)
+
+    word = ''.join(stack)
+    print(word)
+
+    stack.reverse()
+    word_reversed = ''.join(stack)
+    print(word_reversed)
+
+    if(word == word_reversed):
+        print('true')
+        return True
+    else:
+        print('false')
+        return False
+
+is_palindrome('THIS IS A STRING')
+is_palindrome('racecar')
 
 """
 INSTRUCTIONS:
