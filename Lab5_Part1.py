@@ -4,22 +4,22 @@
 
 import string
 
-def is_palindrome(input):
+def is_palindrome(text):
     """Determine if a input is a palindrome."""
     # convert input to lowercase and remove spaces
-    input = input.lower().replace(' ','')
+    text = text.lower().replace(' ','')
     # remove punctuation from input
-    input = input.translate(str.maketrans('', '', string.punctuation))
+    text = text.translate(str.maketrans('', '', string.punctuation))
     stack = []
-    reversed_input = ''
+    reversed_text = ''
 
-    for letter in input:
+    for letter in text:
         stack.append(letter)
 
     while(len(stack) > 0):
-        reversed_input += stack.pop()
+        reversed_text += stack.pop()
 
-    if(input == reversed_input):
+    if(text == reversed_text):
         return True
     else:
         return False
