@@ -4,19 +4,27 @@
 
 def is_ordered(sequence):
     """Determine if the elements of a sequence are in sorted order."""
-    for i in range(len(sequence)):
-        print(sequence[i])
-    return
+    length = len(sequence)
 
-"""
-INSTRUCTIONS:
-Receive a sequence and returns True if the elements are in sorted order. Test your function with
-sorted and un-sorted lists, tuples and strings.
-"""
+    for i in range(1, length):
+        # increasing sequence
+        if(sequence[i] > sequence[i-1]):
+            if(((i+1) < length) and sequence[i+1] < sequence[i]):
+                return False
+        # decreasing sequence
+        elif(sequence[i] < sequence[i-1]):
+            if(((i+1) < length) and sequence[i+1] > sequence[i]):
+                return False
+    return True
 
-is_ordered([0,1,2,3])       # sorted list       -   True
-is_ordered([0,5,10,15,3])   # unsorted list     -   False
-is_ordered((0,1,2,3))       # sorted tuple      -   True
-is_ordered((0,1,2,4,3))     # unsorted tuple    -   False
-is_ordered('abcd')          # sorted string     -   True
-is_ordered('abdc')          # unsorted string   -   False
+print(is_ordered([0,1,2,3]))        # sorted list (increasing)      -   True
+print(is_ordered([3,2,1,0]))        # sorted list (decreasing)      -   True
+print(is_ordered([0,5,10,15,3]))    # unsorted list                 -   False
+print(is_ordered((0,1,2,3)))        # sorted tuple (increasing)     -   True
+print(is_ordered((3,2,1,0)))        # sorted tuple (decreasing)     -   True
+print(is_ordered((0,1,2,4,3)))      # unsorted tuple                -   False
+print(is_ordered('abcd'))           # sorted string (increasing)    -   True
+print(is_ordered('dcba'))           # sorted string (decreasing)    -   True
+print(is_ordered('abdc'))           # unsorted string               -   False
+print(is_ordered([0]))              # single item                   -   True by default
+print(is_ordered([0, 1]))           # two items                     -   True by default
