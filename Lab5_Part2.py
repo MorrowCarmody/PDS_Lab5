@@ -4,16 +4,16 @@
 
 def is_ordered(sequence):
     """Determine if the elements of a sequence are in sorted order."""
-    length = len(sequence)
+    sequence_length = len(sequence)
 
-    for i in range(1, length):
+    for i in range(1, sequence_length):
         # increasing sequence
         if(sequence[i] > sequence[i-1]):
-            if(((i+1) < length) and (sequence[i+1] < sequence[i])):
+            if(((i+1) < sequence_length) and (sequence[i+1] < sequence[i])):
                 return False
         # decreasing sequence
         elif(sequence[i] < sequence[i-1]):
-            if(((i+1) < length) and (sequence[i+1] > sequence[i])):
+            if(((i+1) < sequence_length) and (sequence[i+1] > sequence[i])):
                 return False
     return True
 
